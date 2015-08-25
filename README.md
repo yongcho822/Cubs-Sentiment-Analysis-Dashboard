@@ -6,3 +6,4 @@ Visualized using NVD3 Stacked Area Charts and then compiled into a dashboard usi
 www.yongcho.com/deezcubs
 
 [Viz Dashboard](Cubs_NVD3/combined.png)
+[Viz](https://github.com/yongcho822/Fletcher/blob/master/Cubs_NVD3/combined.png)
