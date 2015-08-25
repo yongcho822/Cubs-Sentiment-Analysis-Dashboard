@@ -5,4 +5,4 @@ Visualized using NVD3 Stacked Area Charts and then compiled into a dashboard usi
 
 www.yongcho.com/deezcubs
 
-[Viz Dashboard](combined.png)
+[Viz Dashboard](Cubs_NVD3/combined.png)
