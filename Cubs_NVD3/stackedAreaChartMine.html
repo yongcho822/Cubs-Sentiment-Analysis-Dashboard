@@ -7,6 +7,7 @@
     <script src="https://s3.amazonaws.com/cubsfletcher/d3.js" charset="utf-8"></script>
     <script src="https://s3.amazonaws.com/cubsfletcher/nv.d3.js"></script>
     <script src="https://s3.amazonaws.com/cubsfletcher/jquery-1.11.3.min.js"></script>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
     <style>
         text {
@@ -28,25 +29,45 @@
         }
         #headercontainer{
             position: relative;
-            height: 100%
+            height: 100%;
+            width: auto;
         }
         #container{
             position: relative;
             height: 100%;
             text-align: center;
         }
+ /*       .bigkahuna{
+            position: absolute;
+            display:block;
+        }*/
         #extracontainer{
             position: relative;
             height: 100%;
-            width: 100%;
+            /*height: auto;*/
         }
-        .chart {
+/*        .chart {
+
             height: 40%;
-            margin-top: -20px;
+            margin-top: 10px;
+        }*/
+        .chartA {
+            position: absolute;
+            bottom: 43.5%;
+            height: 40%;
+            width: 100%;
+            /*margin-top: -100px;*/
+        }
+        .chartB {
+            position: absolute;
+            bottom: 0%;
+            height: 40%;
+            width: 100%;
+            /*margin-top: -100px;*/
         }
         #chart1 {
             position: relative;
-            width: 97%;
+            width: 97.5%;
             margin: auto;
             /*margin-bottom: 0px;*/
         }
@@ -56,110 +77,495 @@
             margin: auto;
 /*            margin-bottom: 5px;*/
         }
+        .boom1{
+            position: absolute;
+            bottom: 80%;
+            left:1.75%;
+        }
+
+        .boom2{
+            position: absolute;
+            bottom: 36.5%;
+            left:0.5%;
+        }
         #titletext{
             /*top:5%;*/
         }
-        #titleheader{
+
+        /*margin: top right bottom left*/
+        h1{
+            position: absolute;
             font-family: Helvetica;
             font-size: 100px;
             color: #00006B;
             line-height: 80%;      
-            margin-top: 3%;
+            /*margin-top: 3%;*/
+            bottom: 50%;
         }
-        #subtitleheader{
+        @media screen and (max-width: 1075px) {
+            h1{ 
+                position: absolute;
+                font-size: 80px;
+                padding: 0 10px;
+                bottom: 50%;
+            } 
+        }
+        @media screen and (max-width: 720px) {
+            h1 { 
+                position: absolute;
+                font-size: 50px;
+                padding: 0 10px;
+                bottom: 50%;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            h1 { 
+                position: absolute;
+                font-size: 35px;
+                padding: 0 10px;
+                bottom: 50%;
+            } 
+        }
+      /*  @media screen and (max-width: 1024px) {
+            #titleheader { 
+                font-size: 80px;
+                padding: 0 1em;
+            } 
+        }
+
+        @media screen and (max-width: 720px) {
+            #titleheader { 
+                font-size: 60px;
+                padding: 0 1em;
+            } 
+        }
+*/
+        h2{
+            position: absolute;
             font-family: Helvetica;
             font-size: 50px;
             color: #FF5C5C;
             line-height: 80%;      
             margin-top: 10%;
             width:40%;
+            /*top: 0em;*/
+            bottom: 25%;
         }
-        #scrollbutton{
+
+        @media screen and (max-width: 1075px) {
+            h2{ 
+                position: absolute;
+                font-size: 40px;
+                padding: 0 10px;
+                bottom: 25%;
+            } 
+        }
+
+        @media screen and (max-width: 720px) {
+            h2 { 
+                position: absolute;
+                font-size: 25px;
+                padding: 0 10px;
+                bottom: 25%;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            h2 { 
+                position: absolute;
+                font-size: 15px;
+                padding: 0 10px;
+                bottom: 25%;
+            } 
+        }
+        #shell{
+            position: relative;
             display: block;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 3%;
+            /*margin-bottom: 3%;*/
+
         }
+        #scrollbutton{
+            position: absolute;
+            bottom: 5%;
+            left: 45%;
+        }
+
+        @media screen and (max-width: 1075px) {
+            #scrollbutton{ 
+                position: absolute;
+                bottom: 5%;
+                left: 45%;
+                width: 45px;
+            } 
+        }
+
+        @media screen and (max-width: 720px) {
+            #scrollbutton { 
+                width: 30px;
+                position: absolute;
+                bottom: 5%;
+                left: 46.25%;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #scrollbutton { 
+                width: 20px;
+                position: absolute;
+                bottom: 5%;
+                left: 47.5%;
+            } 
+        }
+        #titlesummary {
+            position: absolute; 
+            text-align: right; 
+            vertical-align: top; 
+            font-size: 14px;
+            right:2.5%;
+            bottom: 5%;
+            /*margin-left: 3%;*/
+            width:400px;
+        }
+        @media screen and (max-width: 1024px) {
+            #titlesummary{ 
+                font-size: 12px;
+                padding: 0 1em;
+            } 
+        }
+        @media screen and (max-width: 720px) {
+            #titlesummary { 
+                font-size: 8px;
+                padding: 0 1em;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #titlesummary { 
+                font-size: 5px;
+                padding: 0 1em;
+            } 
+        }
+        .chart-intro{
+          position: relative;
+          width: 100%;
+          margin: auto;
+        }
+        .intro-1{
+            position: absolute;
+            /*bottom: 95%;*/
+            width: 22.5%;
+            left:2.5%;
+            float: left;
+        }
+
+        .intro-2{
+            position: absolute;
+            /*width:500px;*/
+            width: 50%;
+            left:25%;
+            top: 0%;
+            float: left;
+        }
+
+        .intro-3{
+            position: absolute;
+            left: 75%;
+            width: 22.5%;
+            float: left;
+            /*overflow: scroll;*/
+            display: block;
+        }
+
         #main_header {
-            margin: auto;
-            margin-top: 8px;
+            position: relative;
             text-align: center;
             font-weight: bold;
-            font-size: 18px;
-            color: #00006B;
-            text-decoration: underline;
-            border-bottom: 3px solid #FF5C5C;
-            display: inline-block;
+          font-size: 18px;
+          color: #00006B;
+          text-decoration: underline;
+          border-bottom: 3px solid #FF5C5C;
+          display: inline-block;
+          top: 0%;
+          margin-bottom: 0;
         }
+        @media screen and (max-width: 1080px) {
+            #main_header{ 
+                font-size: 14px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #main_header{ 
+                font-size: 14px;
+            } 
+        }
+        @media screen and (max-width: 760px) {
+            #main_header{ 
+                font-size: 10px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #main_header{ 
+                font-size: 10px;
+            } 
+        }
+/*          margin: auto;
+          margin-top: 8px;
+          text-align: center;
+          font-weight: bold;
+          font-size: 18px;
+          color: #00006B;
+          text-decoration: underline;
+          border-bottom: 3px solid #FF5C5C;
+          display: inline-block;*/
         #main_header2 {
-            margin: auto;
-            text-align: center;
-            font-size: 14px;
-            color: #00006B;
-            text-decoration: underline;
-            border-bottom: 3px solid #FF5C5C;
-            display: inline-block;
-            margin-bottom: 10px;
+/*            position: absolute;
+*/        text-align: center;
+          font-size: 12.5px;
+          color: #00006B;
+          text-decoration: underline;
+          border-bottom: 3px solid #FF5C5C;
+          display: inline-block;
+          margin-top: 0;
+          /*bottom: 85%;*/
+          /*margin-top: -250px;*/
+/*          margin: auto;
+          text-align: center;
+          font-size: 14px;
+          color: #00006B;
+          text-decoration: underline;
+          border-bottom: 3px solid #FF5C5C;
+          display: inline-block;
+          margin-bottom: 10px;*/
+        }
+        @media screen and (max-width: 1080px) {
+            #main_header2{ 
+                font-size: 10px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #main_header2{ 
+                font-size: 10px;
+            } 
+        }
+        @media screen and (max-width: 760px) {
+            #main_header2{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #main_header2{ 
+                font-size: 5px;
+            } 
         }
 
+        #yong {
+          position: relative; 
+          text-align: left; 
+          vertical-align: top; 
+          font-size: 10px;
+          left:6%;
+          top:0%;
+          /*margin-left: 3%;*/
+        }
+        @media screen and (max-width: 1080px) {
+            #yong{ 
+                font-size: 8px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #yong{ 
+                font-size: 6px;
+            } 
+        }
+        @media screen and (max-width: 760px) {
+            #yong{ 
+                font-size: 6px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #yong{ 
+                font-size: 4px;
+            } 
+        }
+        #summary {
+            position: relative; 
+            text-align: right; 
+            vertical-align: top; 
+            font-size: 10px;
+            /*right:2.5%;*/
+            word-wrap: break-word;
+            top:0%;
+        }
+        @media screen and (max-width: 1080px) {
+            #summary{ 
+                font-size: 8px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #summary{ 
+                font-size: 6px;
+            } 
+        }
+        @media screen and (max-width: 760px) {
+            #summary{ 
+                font-size: 6px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #summary{ 
+                font-size: 4px;
+            } 
+        }
 
-        #cont1, #cont2, #cont3, #cont4 {
-            width: 50%;
+        .small-containerTL{
+            position: absolute;
+            width: 45%;
+            left:2.5%;
+            top:0%;
             display: inline-block;
-            text-align: center;
+            /*text-align: center;*/
             float: left;
-            margin-bottom: -1%;
+            margin: auto;
         }
+        @media screen and (max-width: 760px) {
+            .small-containerTL { 
+                width: 80%; 
+                left:10%;
+                display:block;
+                float: none;
+            } 
+        }
+        .small-containerBL{
+            position: absolute;
+            width: 45%;
+            left:2.5%;
+            top:60%;
+            display: inline-block;
+            /*text-align: center;*/
+            float: left;
+            margin: auto;
+        }
+        @media screen and (max-width: 760px) {
+            .small-containerBL { 
+                width: 80%; 
+                left:10%;
+                top:120%;
+                display:block;
+                float: none;
+            } 
+        }
+        .small-containerTR{
+            position: absolute;
+            width: 45%;
+            height: 20%;
+            top:0%;
+            left: 55%;
+            display: inline-block;
+            /*text-align: center;*/
+            float: left;
+        }
+        @media screen and (max-width: 760px) {
+            .small-containerTR { 
+                width: 80%; 
+                left:10%;
+                top:60%;
+                display:block;
+                float: none;
+            } 
+        }
+        .small-containerBR{
+            position: absolute;
+            width: 45%;
+            left: 55%;
+            top:60%;
+            display: inline-block;
+            /*text-align: center;*/
+            float: left;
+        }
+        @media screen and (max-width: 760px) {
+            .small-containerBR { 
+                width: 80%; 
+                left:10%;
+                top:180%;
+                display:block;
+                float: none;
+            } 
+        }
+        /* styles for tablet*/
+        @media screen and (max-width: 1080px) {
+            .small-container { 
+/*                width: 80%; 
+                float: none;*/
+            } 
+        }
+
+                /* styles for mobile*/
+/*        @media screen and (max-width: 760px) {
+            .small-containerTL{ 
+                width: 80%; 
+                float: none;
+            } 
+        }*/
 
         #FreqChartContainer {
-        }
-        #ClusterChartContainer {
             /*position: relative;*/
+            /*float: left;*/
             /*display: inline-block;*/
             /*margin: auto;*/
-            margin-left: -20px;
-            margin-top: 30px;
-            float:none;
-            /*margin: 0px;*/
+        }
+        #ClusterChartContainer {
+
+            margin-top: 5%;
+            /*float:none;*/
         }
         #PieChartContainer {
             float: none;
-            margin-left: 3%;
+            margin-left: 5%;
         }
         #BenchChartContainer {
             /*margin-left: -340px;*/
             /*width: 500px;*/
-            float: none;
+            /*float: none;*/
             /*float: right;*/
             /*display: inline-block;*/
         }
         #Bench1 {
+            height: 100%;
+            width: 70%;
             float: left;
             /*position: relative;*/
         }
         #Pie1 {
             float: none;
+            height:50%;
+            width: 50%;
             margin-bottom: 3%;
             /*margin-left: 0px;*/
-            padding-left: 20px;
+            padding-left: 5%;
         }
         #Cluster1 {
-            margin-right: -5px;
+            margin-right: -2%;
+            margin-top: -22.5px;
             vertical-align: top;
+            height: 70%;
+            width: 70%;
+
         }
         #Cluster2 {
+            margin-top: -22.5px;
             margin-right: 10px;
+            height: 20%;
+            width: 20%;
             /*float: right;*/
         }
         #subheaderPie {
             color: #00006B;
-            margin-left: -133px;
+            /*margin-left: -133px;*/
             display: inline-block;
             border-bottom: 3px solid #FF5C5C;
         }
         #subheaderBench {
             color: #00006B;
-            margin-left: -185px;
+            /*margin-left: -185px;*/
             display: inline-block;
             border-bottom: 3px solid #FF5C5C;
         }
@@ -168,22 +574,35 @@
         }
         .subheader {
             color: #00006B;
-            margin-left: -150px;
+            text-align: left;
+            /*left: 5%*/
+            /*margin-left: -150px;*/
             display: inline-block;
             border-bottom: 3px solid #FF5C5C;
 /*            i wanna set the border-bottom length to the image size - 
               do i have to change the div size itself and then match it to that size?*/   
         }
-        p.small{
-            /*position: relative;*/
+
+        .small{
+          /*margin: auto;*/
+          /*this will center the element in the middle of the container*/
+            position: absolute;
+            width: 65%;
             font-size: 12px;
-            width: 380px;
             word-wrap: break-word;
-            margin-top: -30px;
-            /*margin-left: 10%;*/
-            margin-left: 66px;
+            left: 2%;
             text-align: left;
-            /*margin-right: 50px;*/
+            margin-top: -2.5%;
+        }
+        @media screen and (max-width: 1080px) {
+            .small{ 
+                font-size: 10px;
+            } 
+        }
+        @media screen and (max-width: 760px) {
+            .small{ 
+                font-size: 8px;
+            } 
         }
         #longP{
             font-size: 12px;
@@ -194,13 +613,43 @@
             text-align: left;
             margin-left: -25px;
         }
+        @media screen and (max-width: 1080px) {
+            #longP{ 
+                font-size: 10px;
+            } 
+        }
+        @media screen and (max-width: 760px) {
+            #longP{ 
+                font-size: 8px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #longP{ 
+                font-size: 6px;
+            } 
+        }
         #longB{
             font-size: 12px;
-            width: 150px;
+            width: 22.5%;
             float: left;
             word-wrap: break-word;
             display: inline-block;
             text-align: left;
+        }
+        @media screen and (max-width: 1080px) {
+            #longB{ 
+                font-size: 10px;
+            } 
+        }
+        @media screen and (max-width: 760px) {
+            #longB{ 
+                font-size: 8px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #longB{ 
+                font-size: 6px;
+            } 
         }
         .game_header{
             font-size:15px;
@@ -212,15 +661,56 @@
             text-decoration: underline;
             margin-top: 10px;
         }
+        @media screen and (max-height: 580px) {
+            .game_header{ 
+                font-size: 12.5px;
+            } 
+        }
+        @media screen and (max-width: 1080px) {
+            .game_header{ 
+                font-size: 8px;
+            } 
+        }
+        @media screen and (max-width: 760px) {
+            .game_header{ 
+                font-size: 6px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            .game_header{ 
+                font-size: 4px;
+            } 
+        }
         .game_description{
             font-size: 12px;
             color:#00006B;
             text-align: left;
             margin-left: 6%;
             word-wrap: break-word;
-            width: 450px;
+            /*width: 450px;*/
+            width: 60%;
             margin-top: 0px;
             margin-bottom: 0px;
+        }
+        @media screen and (max-height: 580px) {
+            .game_description{ 
+                font-size: 9px;
+            } 
+        }
+        @media screen and (max-width: 1080px) {
+            .game_description{ 
+                font-size: 8px;
+            } 
+        }
+        @media screen and (max-width: 760px) {
+            .game_description{ 
+                font-size: 6px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            .game_description{ 
+                font-size: 4px;
+            } 
         }
         .game_description2{
             font-size: 12px;
@@ -228,48 +718,51 @@
             text-align: left;
             margin-left: 6%;
             word-wrap: break-word;
-            width: 585px;
+            /*width: 585px;*/
+            width:60%;
             margin-top: 0px;
             margin-bottom: 0px;
         }
-        #yong {
-            position: absolute; 
-            text-align: left; 
-            vertical-align: top; 
-            font-size: 10px;
-            left:6%;
-            top:0%;
-            /*margin-left: 3%;*/
-            width:300px;
+        @media screen and (max-height: 580px) {
+            .game_description2{ 
+                font-size: 9px;
+            } 
         }
-        #summary {
-            position: absolute; 
-            text-align: right; 
-            vertical-align: top; 
-            font-size: 10px;
-            right:2.5%;
-            top:0%;
-            /*margin-left: 3%;*/
-            width:300px;
+        @media screen and (max-width: 1080px) {
+            .game_description2{ 
+                font-size: 8px;
+            } 
         }
-        #titlesummary {
-            position: absolute; 
-            text-align: right; 
-            vertical-align: top; 
-            font-size: 14px;
-            right:2.5%;
-            top:80%;
-            /*margin-left: 3%;*/
-            width:400px;
+        @media screen and (max-width: 760px) {
+            .game_description2{ 
+                font-size: 6px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            .game_description2{ 
+                font-size: 4px;
+            } 
         }
         #analysis-disclaimer{
             margin-top: 3px;
             position: absolute;
-            right:70.5%;
+            right:72.5%;
             font-size: 10px;
-            width: 300px;
+            width: 25%;
             word-wrap: break-word;
             text-align: left;
+        }
+        @media screen and (max-width: 760px) {
+            #analysis-disclaimer{ 
+                font-size: 7.5px;
+                left:10%;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #analysis-disclaimer{ 
+                font-size: 5px;
+                left:10%;
+            } 
         }
         .charttxt{
             font-size: 30%;
@@ -278,90 +771,381 @@
             position: absolute;
         }
         #txt1{
-            width: 70px;
-            top:35%;
-            left:23%;
+            width: 5%;
+            top:47.5%;
+            left:23.5%;
             color: #00006B;
         }
+        @media screen and (max-width: 760px) {
+            #txt1{ 
+                font-size: 7.5px;
+                left:25%;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt1{ 
+                font-size: 3.5px;
+                left:25%;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt1{ 
+                font-size: 7.5px;
+                top: 40%;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt1{ 
+                top:25%;
+            } 
+        }
         #txt2{
-            width: 70px;
+            width: 5%;
             top:25%;
             left:50%;
             color: #00006B;
         }
+        @media screen and (max-width: 760px) {
+            #txt2{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt2{ 
+                font-size: 3.5px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt2{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt2{ 
+                top:10%;
+            } 
+        }
         #txt3{
-            width: 70px;
+            width: 5%;
             top:21%;
             left:61%;
             color: #00006B;
         }
+        @media screen and (max-width: 760px) {
+            #txt3{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt3{ 
+                font-size: 3.5px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt3{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt3{ 
+                top:10%;
+                left: 62%;
+            } 
+        }
         #txt4{
-            width: 70px;
+            width: 5%;
             top:34%;
             left:70%;
             color: #00006B;
         }
+        @media screen and (max-width: 760px) {
+            #txt4{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt4{ 
+                font-size: 3.5px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt4{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt4{ 
+                top:10%;
+            } 
+        }
         #txt5{
-            width: 70px;
+            width: 5%;
             top:34%;
             left:80%;
             color: #00006B;
         }
+        @media screen and (max-width: 760px) {
+            #txt5{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt5{ 
+                font-size: 3.5px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt5{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt5{ 
+                top:10%;
+            } 
+        }
+
         #txt6{
-            width: 70px;
+            width: 5%;
             top:21%;
             left:86.5%;
             color: #00006B;
         }
+        @media screen and (max-width: 760px) {
+            #txt6{ 
+                font-size: 7.5px;
+                left:85%;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt6{ 
+                font-size: 3.5px;
+                left:85%;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt6{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt6{ 
+                top:12.5%;
+                left: 86%;
+            } 
+        }
         #txt7{
-            width: 70px;
-            top:71%;
-            left:8.5%;
+            width: 5%;
+            top:20%;
+            left:9.5%;
             color: #FF5C5C;
         }
+        @media screen and (max-width: 760px) {
+            #txt7{ 
+                font-size: 7.5px;
+                left: 12.5%;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt7{ 
+                font-size: 3.5px;
+                left: 12.5%;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt7{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt7{ 
+                top:10%;
+            } 
+        }
         #txt8{
-            width: 70px;
-            top:79.5%;
+            width: 7%;
+            top:41%;
             left:22%;
             color: #FF5C5C;
         }
+        @media screen and (max-width: 760px) {
+            #txt8{ 
+                font-size: 7.5px;
+                left:23%;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt8{ 
+                font-size: 3.5px;
+                left:23%;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt8{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt8{ 
+                top:30%;
+            } 
+        }
         #txt9{
-            width: 70px;
-            top:78.5%;
-            left:55%;
+            width: 7%;
+            top:40.5%;
+            left:54.75%;
             color: #00006B;
         }
+        @media screen and (max-width: 760px) {
+            #txt9{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt9{ 
+                font-size: 3.5px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt9{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt9{ 
+                top:30%;
+            } 
+        }
         #txt10{
-            width: 70px;
-            top:66%;
+            width: 5%;
+            top:16%;
             left:63.5%;
             color: #00006B;
         }
+        @media screen and (max-width: 760px) {
+            #txt10{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt10{ 
+                font-size: 3.5px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt10{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt10{ 
+                top:10%;
+            } 
+        }
         #txt11{
-            width: 70px;
-            top:70%;
+            width: 5%;
+            top:20%;
             left:75%;
             color: #00006B;
         }
+        @media screen and (max-width: 760px) {
+            #txt11{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt11{ 
+                font-size: 3.5px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt11{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt11{ 
+                top:10%;
+            } 
+        }
         #txt12{
-            width: 70px;
-            top:77%;
+            width: 5%;
+            top:27%;
             left:83.5%;
             color: #FF5C5C;
         }
+        @media screen and (max-width: 760px) {
+            #txt12{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt12{ 
+                font-size: 3.5px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt12{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt12{ 
+                top:10%;
+            } 
+        }
         #txt13{
-            width: 70px;
-            top:77%;
+            width: 5%;
+            top:27%;
             left:92%;
             color: #FF5C5C;
         }
+        @media screen and (max-width: 760px) {
+            #txt13{ 
+                font-size: 7.5px;
+                left:90.5%;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt13{ 
+                font-size: 3.5px;
+                left:90.5%;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt13{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-height: 480px) {
+            #txt13{ 
+                top:10%;
+            } 
+        }
         #txt14{
-            width: 300px;
-            top:79.5%;
-            left:30%;
+            width: 20%;
+            top: 42%;
+            left:32%;
             color: #0099FF;
         }
+        @media screen and (max-width: 760px) {
+            #txt14{ 
+                font-size: 7.5px;
+            } 
+        }
+        @media screen and (max-width: 580px) {
+            #txt14{ 
+                font-size: 3.5px;
+            } 
+        }
+        @media screen and (max-height: 580px) {
+            #txt14{ 
+                font-size: 7.5px;
+            } 
+        }
         #bottomlogo{
+            height: 2%;
+            width: 2%;
             position: relative;
             display: block;
             margin-left: auto;
@@ -371,14 +1155,39 @@
             z-index: 10;
             opacity: 0.7;
             }
+        @media screen and (max-width: 760px) {
+            #bottomlogo{ 
+                position: absolute;
+                text-align: center;
+                top:430%;
+                left:50%;
+               /* display:block;
+                float: none;*/
+            } 
+        }
         #last{
             text-align: center;
-            font-size: 10px;
+            font-size: 7.5%;
             display: block;
             margin-left: auto;
             margin-right: auto;
             margin-top: 0px;
             margin-bottom: 1%;
+        }
+        @media screen and (max-width: 760px) {
+            #last{ 
+                position: absolute;
+                text-align: center;
+                top:433.5%;
+                left:42.5%;
+                display:inline-block;
+                /*float: none;*/
+            } 
+        }
+        #img1{
+            height: 100%;
+            width: 100%;
+            /*object-fit; contain;*/
         }
      </style>
 </head>
@@ -386,90 +1195,113 @@
     
     <div id="headercontainer">
         <div id="titletext">
-            <h1 id="titleheader">Sentiment Analysis&<br>Benchmarking&<br>Clustering.</h1>
-            <h2 id="subtitleheader">Analyzing in-game Tweets for the Chicago Cubs.</h2>
-            <a href="#container"><img id="scrollbutton" src="https://s3.amazonaws.com/cubsfletcher/scrollarrow.png"></a>
-            <p id='titlesummary'><b>Designed by <a href="http://www.yongcho.com/about">Yong Cho</a></b>.<br>(Best viewed @ 100% zoom,<br>not completely responsive yet)</p>
+            <div class="shell">
+                <h1>Sentiment Analysis&<br>Benchmarking&<br>Clustering.</h1>
+            </div>
+            <div class="shell">
+                <h2>Analyzing in-game Tweets for the Chicago Cubs.</h2>
+            </div>
+            <div class="shell">
+                <a href="#container"><img id="scrollbutton" src="https://s3.amazonaws.com/cubsfletcher/scrollarrow.png"></a>
+            </div>
+            <div class="shell">
+                <p id='titlesummary'><b>Designed by <a href="http://www.yongcho.com/about">Yong Cho</a></b>.<br></p>
+            </div>
         </div>
     </div>
 
     <div id="container">
-        <p id="main_header">Sentiment Analysis:</p><br>
-        <p id="main_header2"><b>Stacked Area Charts</b> of Tweets containing the word <b>"Cubs"</b> during Cubs games</p>
-        <!-- <p id='yong'><b>Designed by <a href="http://www.yongcho.com/about">Yong Cho</a></b>.<br>(Best viewed @ 100% zoom,<br>not completely responsive yet)</p> -->
-        <p id='yong'>Tweets collected 10 mins before game to 10 mins after game.<br>Twitter's livestream only provides 1% of all tweets,<br>but we can still get a good idea of overall tweetflow.<br>Sentiment classification done using <a href="http://www.monkeylearn.com/home/?utm_expid=84507841-4.OSuz1mgnT4-TJT84m-hP1Q.1">MonkeyLearn.</a></p>
-        <p id="summary"><b>Stacked Area Charts</b> allow us to see the flow of total number of tweets during a game, while also showing the spikes and dips of the individual sentiments.<br></br>Click on a sentiment to view that one by itself,<br>or vs just one other sentiment.</p>
-        <div>
-            <h4 class="game_header">Brewers vs Cubs, <b>W 2-9</b>, Thursday, Aug 13th</h4>
-            <p class="game_description">Coming in red-hot, having won 13 of their past 14 games, the Chicago Cubs had themselves a HR-derby while sweeping the visiting Milwaukee Brewers.</p>
+        <div class="chart-intro">
+            <div class="intro-1">
+                <p id='yong'>Tweets collected 10 mins before game to 10 mins after game.<br>Twitter's livestream only provides 1% of all tweets,<br>but we can still get a good idea of overall tweetflow.<br>Sentiment classification done using <a href="http://www.monkeylearn.com/home/?utm_expid=84507841-4.OSuz1mgnT4-TJT84m-hP1Q.1">MonkeyLearn.</a></p>
+            </div>
+            <div class="intro-2">
+                <p id="main_header">Sentiment Analysis:</p><br>
+                <p id="main_header2"><b>Stacked Area Charts</b> of Tweets containing the word <b>"Cubs"</b> during Cubs games</p>
+            </div>
+            <div class="intro-3">
+                <p id="summary"><b>Stacked Area Charts</b> allow us to see the flow of total number of tweets during a game, while also showing the spikes and dips of the individual sentiments.<br></br>Click on a sentiment to view that one by itself,<br>or vs just one other sentiment.</p>
+            </div>
         </div>
-        <div class="chart">
-            <svg id="chart1"></svg>
-            <p class="charttxt" id="txt1">Soler RBI puts the Cubs in front <b>1-0</b></p>
-            <p class="charttxt" id="txt2">Back-to-back HRs by Fowler & Schwarber make it <b>4-1</b> Cubs</p>
-            <p class="charttxt" id="txt3">Rizzo HR makes it Back-to-back-to-back HRs</p>
-            <p class="charttxt" id="txt4">Schwarber hits his 2nd HR of the day, making it <b>7-2</b></p>
-            <p class="charttxt" id="txt5">Denofria HR, the Cubs' 5th of the game</p>
-            <p class="charttxt" id="txt6">Cubs win! Retweets galore!</p>
-            <svg height="100%" width="100%">
-                <line x1="28%" y1="70%" x2="55%" y2="70%" stroke="grey" stroke-dasharray="5 5"/>
-            </svg>
-            <p class="charttxt" id="txt14">rain, rain, go away</p>
-        </div>
-        <div>
-            <h4 class="game_header">Tigers vs Cubs, <b><font color="red">L 10-8</font></b>, Tuesday, Aug 18th</h4>
-            <p class="game_description2">While the game was <u>rain-delayed</u> in the 3rd inning for 2 hours, both teams had plenty of fire power all night. The Cubs fell behind 3-0 in the 1st inning, and couldn't complete the comeback in this one.</p>
-        </div>
-        <div class="chart">
-            <svg id="chart2"></svg>
-            <p class="charttxt" id="txt7">Cubs fall behind <b>3-0</b> in the 1st inning</p>
-            <p class="charttxt" id="txt8">Rain delay announcement</p>
-            <p class="charttxt" id="txt9">Game resumption announcement</p>
-            <p class="charttxt" id="txt10">Schwarber crushes a 3-run HR, cutting the Tigers' lead to <b>6-5</b></p>
-            <p class="charttxt" id="txt11">Rizzo HR in the 7th inning brings the Cubs even at <b>6-6</b></p>
-            <p class="charttxt" id="txt12">Tigers score 3 in the 8th inning to pull back ahead <b>9-6</b></p>
-            <p class="charttxt" id="txt13">Cubs lose <b>10-8</b>. No happy retweets galore</p>
+        <!-- <div style="clear:both"></div> -->
+        <br>
+        <div class="bigkahuna">
+            <div class="boom1">
+                <h4 class="game_header">Brewers vs Cubs, <b>W 2-9</b>, Thursday, Aug 13th</h4>
+                <p class="game_description">Coming in red-hot, having won 13 of their past 14 games, the Chicago Cubs had themselves a HR-derby while sweeping the visiting Milwaukee Brewers.</p>
+            </div>
+            <div class="chartA">
+                <svg id="chart1"></svg>
+                <p class="charttxt" id="txt1">Soler RBI puts the Cubs in front <b>1-0</b></p>
+                <p class="charttxt" id="txt2">Back-to-back HRs by Fowler & Schwarber make it <b>4-1</b> Cubs</p>
+                <p class="charttxt" id="txt3">Rizzo HR makes it Back-to-back-to-back HRs</p>
+                <p class="charttxt" id="txt4">Schwarber hits his 2nd HR of the day, making it <b>7-2</b></p>
+                <p class="charttxt" id="txt5">Denofria HR, the Cubs' 5th of the game</p>
+                <p class="charttxt" id="txt6">Cubs win! Retweets galore!</p>
+<!--                 <svg height="100%" width="100%">
+                    <line x1="28%" y1="70%" x2="55%" y2="70%" stroke="grey" stroke-dasharray="5 5"/>
+                </svg> -->
+<!--                 <p class="charttxt" id="txt14">rain, rain, go away</p> -->
+            </div>
+            <div class = "boom2">
+                <h4 class="game_header">Tigers vs Cubs, <b><font color="red">L 10-8</font></b>, Tuesday, Aug 18th</h4>
+                <p class="game_description2">While the game was <u>rain-delayed</u> in the 3rd inning for 2 hours, both teams had plenty of fire power all night. The Cubs fell behind 3-0 in the 1st inning, and couldn't complete the comeback in this one.</p>
+            </div>
+            <div class="chartB">
+                <svg id="chart2"></svg>
+                <p class="charttxt" id="txt7">Cubs fall behind <b>3-0</b> in the 1st inning</p>
+                <p class="charttxt" id="txt8">Rain delay announcement</p>
+                <p class="charttxt" id="txt14">rain, rain, go away</p>
+                <p class="charttxt" id="txt9">Game resumption announcement</p>
+                <p class="charttxt" id="txt10">Schwarber crushes a 3-run HR, cutting the Tigers' lead to <b>6-5</b></p>
+                <p class="charttxt" id="txt11">Rizzo HR in the 7th inning brings the Cubs even at <b>6-6</b></p>
+                <p class="charttxt" id="txt12">Tigers score 3 in the 8th inning to pull back ahead <b>9-6</b></p>
+                <p class="charttxt" id="txt13">Cubs lose <b>10-8</b>. No happy retweets galore</p>
+            </div>
         </div>
     </div>
     <p id='analysis-disclaimer'>Following analysis all on Aug 13 game</p>
     <div id="extracontainer">
-        <div id = "cont1">
+        <div class = "small-containerTL">
             <h4 class = "subheader">Words Most Commonly Tweeted with "Cubs"</h4>
             <div id="FreqChartContainer">
-                <img src="https://s3.amazonaws.com/cubsfletcher/FreqChartX.png">
+                <img id="img1" src="https://s3.amazonaws.com/cubsfletcher/FreqChartX.png">
             </div>
         </div>
-        <div id = "cont2">
+        <div class = "small-containerTR">
             <h4 class = "subheader">Clustering Tweets with K-means, Word2Vec, and TSNE</h4>
             <div id="ClusterChartContainer">
                 <img id="Cluster1" src="https://s3.amazonaws.com/cubsfletcher/ClusterChartX.png">
                 <img id="Cluster2" src="https://s3.amazonaws.com/cubsfletcher/ClusterWeirdX.png">
-                <div style="clear:both"></div>
+                <!-- <div style="clear:both"></div> -->
                 <p class="small">In conjunction with TSNE's dimensionality reduction and coordinate generation, gensim Word2Vec's ability to separate and cluster words comes through, correctly clustering together tweets that had the word 'cub', but were totally unrelated to the baseball game. (<a href="http://www.thepetitionsite.com/814/621/906/do-not-kill-the-yellowstone-grizzly-sow-and-her-infant-cubs/">there was a bear in Yellowstone being euthanized and leaving orphan cubs for killing a hiker</a>)</p>
             </div>
         </div>
+        <div style="clear:both"></div> 
         <br>
-        <div id = "cont3">
-            <h4 id = "subheaderPie">Tweet Breakdown: Retweets vs Non-Retweets</h4>
+        <div class="small-containerBL">
+            <h4 id="subheaderPie">Tweet Breakdown: Retweets vs Non-Retweets</h4>
             <div id="PieChartContainer">
                 <p id="longP">Retweets were included as they are 'echoing' sentiment.<br></br>Retweets accounted for nearly half of all tweets with the word 'cubs', and nearly half of all those were retweets of tweets by the offical @Cubs account.<br></br>With this kind of exposure, it's clear official team tweets play a huge role in spreading sentiment.</p>
                 <img id="Pie1" src="https://s3.amazonaws.com/cubsfletcher/PieChartX.png">
             </div>
         </div>
-        <div id = "cont4">
+        <div class = "small-containerBR">
             <h4 id = "subheaderBench">Benchmarking Sentiment Analyzer Applications</h4>
             <div id="BenchChartContainer">
                 <img id="Bench1" src="https://s3.amazonaws.com/cubsfletcher/BenchChartX.png">
-                 <p id="longB">A comparison of some of the best-known Sentiment Analyzer Apps. You can see that preprocessing/cleaning the words gives a different result for most.<br></br>Take this with a grain of salt though, as I only handlabeled 100 tweets as the test set, and it's also highly unlikely that any two people would label tweets the same.</p>
+                 <p id="longB">A comparison of some of the best-known Sentiment Analyzer Apps.<br></br>Take this with a grain of salt though, as I only handlabeled 100 tweets as the test set, and it's also highly unlikely that any two people would label tweets the same.</p>
             </div>
-            <div style="clear:both"></div>
+            <!-- <div style="clear:both"></div> -->
         </div>
     </div>
+    <br></br>
     <div>
         <img id="bottomlogo" src="https://s3.amazonaws.com/cubsfletcher/chicago-cubs-logocute.png">
         <a id = "last" href="http://www.yongcho.com">www.yongcho.com</a>
     </div>
 <script>
+
 d3.json('https://s3.amazonaws.com/cubsfletcher/data1.json', function(data){   
     nv.addGraph(function() {
         var chart;
@@ -525,19 +1357,12 @@ d3.json('https://s3.amazonaws.com/cubsfletcher/data2.json', function(data){
             .datum(data)
             .transition().duration(1000)
             .call(chart)
-            // .each('start', function() {
-            //     setTimeout(function() {
-            //         d3.selectAll('#chart2 *').each(function() {
-            //             if(this.__transition__)
-            //                 this.__transition__.duration = 1;
-            //         })
-            //     }, 0)
-            // });
 
         nv.utils.windowResize(chart.update);
         return chart;
     });
 })
+
 
 </script>
 <script>
